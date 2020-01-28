@@ -1,0 +1,15 @@
+<tr><th>ID</th><th>名称</th><th>别名</th><th>文章数量</th><th></th></tr>
+{foreach $tags as $tag}
+<tr>
+  <td class="td5">{$tag->ID}</td>
+  <td class="td25"><a href="{$tag->Url}" target="_blank" class="button"><img src="{$host}zb_system/image/admin/link.png" width="16"></a>{$tag->Name}</td>
+  <td class="td20">{$tag->Alias}</td>
+  <td class="td10">{$tag->Count}</td>
+  <td class="td10 tdCenter"><a href="{$host}zb_system/cmd.php?act=TagEdt&amp;id={$tag->ID}" class="button" target="_blank"><img
+        src="{$host}zb_system/image/admin/tag_blue_edit.png" alt="编辑" title="编辑" width="16"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a
+      onclick="return window.confirm('单击“确定”继续。单击“取消”停止。');"
+      href="{$host}zb_system/cmd.php?act=TagDel&amp;id={$tag->ID}&amp;csrfToken={$csrToken}"
+      class="button"><img src="{$host}zb_system/image/admin/delete.png" alt="删除" title="删除" width="16"></a></td>
+</tr>
+
+{/foreach}
