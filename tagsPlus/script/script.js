@@ -1,4 +1,11 @@
 $(function() {
+  // 文章管理列表附加查看TAG
+  $("tr .td5:first-child").each(function() {
+    let tag = $(this).find("span").text();
+    $(this).siblings(":not([class])").attr("title",tag);
+  });
+
+  // 搜索
   $(".js-tips").hide();
   $(".js-submit").click(function() {
     let s = $("#inpSearch").val();

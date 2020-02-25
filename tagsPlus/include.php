@@ -7,6 +7,21 @@ function ActivePlugin_tagsPlus()
   Add_Filter_Plugin('Filter_Plugin_Admin_TagMng_SubMenu', 'tagsPlus_SubMenu');
   Add_Filter_Plugin('Filter_Plugin_Cmd_Ajax', 'tagsPlus_Ajax');
   Add_Filter_Plugin('Filter_Plugin_Zbp_BuildTemplate', 'tagsPlus_tpl');
+  Add_Filter_Plugin('Filter_Plugin_Admin_Footer', 'tagsPlus_ArticleMng_JS');
+  Add_Filter_Plugin('Filter_Plugin_Admin_ArticleMng_Table', 'tagsPlus_ArticleMng_AddTag');
+}
+function tagsPlus_ArticleMng_AddTag($article, &$tabletds, $tableths)
+{
+  $tabletds[1] = '<td class="td5">' . $article->ID . '<span style="display:none;">' . $article->TagsToNameString() . '</span></td>';
+}
+function tagsPlus_ArticleMng_JS()
+{
+  $action = GetVars('act', 'GET');
+  if ($action == "ArticleMng") {
+?>
+    <script src="<?php echo tagsPlus_Path("script", "host") ?>"></script>
+<?php
+  }
 }
 function tagsPlus_tpl(&$templates)
 {
@@ -43,7 +58,7 @@ function tagsPlus_Path($file, $t = "path")
   $result = $zbp->$t . "zb_users/plugin/tagsPlus/";
   switch ($file) {
     case "script":
-      return $result . "script/script.js?v=2020-01-28";
+      return $result . "script/script.js?v=2020-02-25";
       break;
     case "tpl-tr":
       return $result . "tpl/tpl-tr.html";
