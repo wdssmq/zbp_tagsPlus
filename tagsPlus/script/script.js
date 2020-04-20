@@ -1,6 +1,6 @@
 $(function() {
   // 文章管理列表附加查看TAG
-  $("tr .td5:first-child").each(function() {
+  $("tr .tag-td").each(function() {
     let tag = $(this).find("span").text();
     $(this).siblings(":not([class])").attr("title",tag);
   });

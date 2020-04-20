@@ -10,9 +10,24 @@ function ActivePlugin_tagsPlus()
   Add_Filter_Plugin('Filter_Plugin_Admin_Footer', 'tagsPlus_ArticleMng_JS');
   Add_Filter_Plugin('Filter_Plugin_Admin_ArticleMng_Table', 'tagsPlus_ArticleMng_AddTag');
 }
-function tagsPlus_ArticleMng_AddTag($article, &$tabletds, $tableths)
+function tagsPlus_ArticleMng_AddTag($article, &$tabletds, &$tableths)
 {
-  $tabletds[1] = '<td class="td5">' . $article->ID . '<span style="display:none;">' . $article->TagsToNameString() . '</span></td>';
+  global $zbp;
+  if ($zbp->CheckPlugin("tt_article")) {
+    return;
+  }
+  if ($zbp->CheckPlugin("HK_Articles_Manger_Cat")) {
+    return;
+  }
+  $addTh = '<th class="tag-th" style="display:none;"></th>';
+  if ($tableths[count($tableths) - 2] !== $addTh) {
+    $thLast = array_pop($tableths);
+    $tableths[] =  $addTh;
+    $tableths[] =  $thLast;
+  }
+  $tdLast = array_pop($tabletds);
+  $tabletds[] = '<td class="tag-td" style="display:none;">' . $article->ID . '<span style="display:none;">' . $article->TagsToNameString() . '</span></td>';
+  $tabletds[] =  $tdLast;
 }
 function tagsPlus_ArticleMng_JS()
 {
@@ -58,7 +73,7 @@ function tagsPlus_Path($file, $t = "path")
   $result = $zbp->$t . "zb_users/plugin/tagsPlus/";
   switch ($file) {
     case "script":
-      return $result . "script/script.js?v=2020-02-25";
+      return $result . "script/script.js?v=2020-03-13";
       break;
     case "tpl-tr":
       return $result . "tpl/tpl-tr.html";
