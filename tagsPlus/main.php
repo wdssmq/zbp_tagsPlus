@@ -20,6 +20,7 @@ require $blogpath . 'zb_system/admin/admin_top.php';
   <div class="divHeader"><?php echo $blogtitle; ?></div>
   <div class="SubMenu">
     <?php tagsPlus_SubMenu(0); ?>
+    <?php require "about.php"; ?>
   </div>
   <div id="divMain2">
     <form class="search" id="search" method="post" action="#">搜索：<input id="inpSearch" name="inpSearch" style="width:250px;" type="text" value=""> &nbsp;&nbsp;<input type="submit" class="button js-submit" value="提交"></form>

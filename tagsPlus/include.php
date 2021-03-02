@@ -73,7 +73,7 @@ function tagsPlus_Path($file, $t = "path")
   $result = $zbp->$t . "zb_users/plugin/tagsPlus/";
   switch ($file) {
     case "script":
-      return $result . "script/script.js?v=2020-03-13";
+      return $result . "script/script.js?v=2021-03-02";
       break;
     case "tpl-tr":
       return $result . "tpl/tpl-tr.html";
