@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin version="php">
 <id>tagsPlus</id>
-<name>TAG搜索管理</name>
-<url>//jq.qq.com/?_wv=1027&amp;k=5yOeN1c</url>
-<note>给TAG管理增加搜索等功能</note>
+<name>标签管理 Plus</name>
+<url>//jq.qq.com/?_wv=1027&amp;k=555hND5</url>
+<note>标签高级管理</note>
 <description>置百丈玄冰而崩裂，掷须臾池水而漂摇。</description>
 <path>main.php</path>
 <include>include.php</include>
@@ -11,17 +11,17 @@
 <author>
   <name>沉冰浮水</name>
   <email>wdssmq@qq.com</email>
-  <url>https://www.wdssmq.com/</url>
+  <url>https://www.wdssmq.com</url>
 </author>
 <source>
   <name></name>
   <email></email>
   <url></url>
 </source>
-<adapted>151626</adapted>
+<adapted>162210</adapted>
 <version>1.0</version>
-<pubdate>2019-12-28</pubdate>
-<modified>2021-03-02</modified>
+<pubdate>2022-06-30</pubdate>
+<modified>2022-06-30</modified>
 <price>0</price>
 <phpver>5.4</phpver>
 <advanced>

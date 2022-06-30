@@ -12,7 +12,11 @@ if (!$zbp->CheckPlugin('tagsPlus')) {
   die();
 }
 
-$blogtitle = '标签搜索管理';
+if (count($_POST) > 0) {
+  CheckIsRefererValid();
+}
+
+$blogtitle = '标签管理 Plus';
 require $blogpath . 'zb_system/admin/admin_header.php';
 require $blogpath . 'zb_system/admin/admin_top.php';
 ?>
@@ -23,14 +27,10 @@ require $blogpath . 'zb_system/admin/admin_top.php';
     <?php require "about.php"; ?>
   </div>
   <div id="divMain2">
-    <form class="search" id="search" method="post" action="#">搜索：<input id="inpSearch" name="inpSearch" style="width:250px;" type="text" value=""> &nbsp;&nbsp;<input type="submit" class="button js-submit" value="提交"></form>
-    <div class="js-results">
-      <p class="js-tips">正在搜索</p>
-      <table class="tableFull"></table>
-    </div>
+    <!--代码-->
   </div>
 </div>
-<script src="<?php echo tagsPlus_Path("script", "host") ?>"></script>
+
 <?php
 require $blogpath . 'zb_system/admin/admin_footer.php';
 RunTime();
